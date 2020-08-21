@@ -1,4 +1,5 @@
 language: python
+os: [windows, linux, osx]
 
 rvm:
   - 3.8
