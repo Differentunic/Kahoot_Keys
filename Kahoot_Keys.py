@@ -1,56 +1,49 @@
-import pyautogui
-import keyboard
-import PySimpleGUI as sg
-from multiprocessing import Process
-import time
-import sys
-sg.theme('DarkAmber')  # Add a touch of colour
-
-# noinspection PyTypeChecker
-SysTray = sg.SystemTray(menu=None,
-                        filename=None,
-                        data=None,
-                        data_base64=None,
-                        tooltip=None,
-                        metadata=None)
+from os import path
+from pyautogui import leftClick
+from keyboard import is_pressed
+from plyer import notification
 
 
-def notification():
-    sg.SystemTray.ShowMessage(SysTray, 'Kahoot Keys Is Running', 'Press (Esc) To Stop',
-                              filename=None,
-                              data=None,
-                              data_base64=None,
-                              messageicon=None,
-                              time=(300, 5000))
+def notification_on_start():
+    if path.isfile("Kahoot_Keys.ico"):
+        notification.notify(
+            title='Kahoot Keys',
+            message="Kahoot Keys is running. \n Press (Esc) to quit",
+            app_name="Kahoot Keys",
+            app_icon="Kahoot_Keys.ico"
+        )
+        key_check()
+
+    else:
+        exit()
 
 
 def key_check():
     while True:
 
-        if keyboard.is_pressed('j'):
-            pyautogui.moveTo(480, 270)
-            pyautogui.leftClick()
+        if is_pressed('j'):
+            leftClick(480, 270)
 
-        if keyboard.is_pressed('k'):
-            pyautogui.moveTo(480 * 3, 270)
-            pyautogui.leftClick()
+        if is_pressed('k'):
+            leftClick(480 * 3, 270)
 
-        if keyboard.is_pressed('n'):
-            pyautogui.moveTo(480, 270 * 3)
-            pyautogui.leftClick()
+        if is_pressed('n'):
+            leftClick(480, 270 * 3)
 
-        if keyboard.is_pressed('m'):
-            pyautogui.moveTo(480 * 3, 270 * 3)
-            pyautogui.leftClick()
+        if is_pressed('m'):
+            leftClick(480 * 3, 270 * 3)
 
-        if keyboard.is_pressed('esc'):
-            sg.SystemTray.ShowMessage(SysTray, 'Kahoot Keys Has Stopped', '',
-                                      filename=None,
-                                      data=None,
-                                      data_base64=None,
-                                      messageicon=None,
-                                      time=(1000, 5000))
-            break
+        if is_pressed('esc'):
+            if path.isfile("Kahoot_Keys.ico"):
+                notification.notify(
+                    title='Kahoot Keys',
+                    message="Kahoot Keys is running. \n Press (Esc) to quit",
+                    app_name="Kahoot Keys",
+                    app_icon="Kahoot_Keys.ico"
+                )
+                exit()
+            else:
+                exit()
 
-notification()
-key_check()
+
+notification_on_start()
