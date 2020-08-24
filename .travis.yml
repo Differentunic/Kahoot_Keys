@@ -2,10 +2,10 @@ language: python
 # ===== Linux ======
 dist: xenial
 python:
-  - 2.7
   - 3.5
   - 3.6
   - 3.7
+  - 3.8
 matrix:
   include:
     # ======= OSX ========
