@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Differentunic/Kahoot_Keys.svg?branch=master)](https://travis-ci.org/Differentunic/Kahoot_Keys)
 # Kahoot_Keys
 This is a small program written in python that allows you to utilise the (<ins>J</ins> <ins>K</ins> <ins>N</ins> <ins>M</ins>) keys to answer questions on [Kahoot.it](https://kahoot.it)
 
