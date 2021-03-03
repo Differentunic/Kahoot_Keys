@@ -54,7 +54,7 @@ before_install:
   - pip install -U pytest
   - pip install codecov
 install:
-  - pip install --use-feature=2020-resolver -r requirements.txt
+  - pip install -r requirements.txt
 script: pytest Kahoot_Keys.py
 after_success:
   - codecov # submit coverage
