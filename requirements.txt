@@ -2,4 +2,4 @@ pyautogui
 keyboard
 plyer
 requests
-Pillow==5.2.0
+Pillow==7.1.0
