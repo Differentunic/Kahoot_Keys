@@ -9,7 +9,7 @@ before_install:
   - pip install -U pytest
   - pip install codecov
 install:
-  - pip install "requirements.txt[test]" . # install package + test dependencies
+  - pip install "requirements.txt" # install package + test dependencies
 script: pytest # run tests
 after_success:
   - codecov # submit coverage
